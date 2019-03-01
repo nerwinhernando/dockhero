@@ -3,24 +3,37 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+# Prerequisites
+Install Docker
+Install Ruby
+gem install orats
+Install Heroku Toolbelt
 
-* Ruby version
+# Build Image for Local
+* Terminal 1
 
-* System dependencies
+> cd ~/dev
+> orats new dockhero
+> cd herocker
+> git init && git add . && git commit -m "Scoffald from orats"
 
-* Configuration
+> docker-compose up --build
 
-* Database creation
+Migrate the database in T2.
+Compile the assets in T2.
 
-* Database initialization
+* Terminal 2 (T2)
+> docker-compose exec website rails db:create db:migrate
 
-* How to run the test suite
+> docker-compose exec website rake assets:precompile
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+curl -o config/puma.rb https://gist.githubusercontent.com/gabrieljoelc/8c04941042e9241a41b840cccf1ad5fb/raw/puma.rb
+git add . && git commit -m "Split BIND_ON from PORT for puma binding"
 
-* ...
+vi .env
+
+docker-compose up --build
+
 # References
 https://github.com/gabrieljoelc/herocker
