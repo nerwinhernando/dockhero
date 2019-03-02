@@ -3,6 +3,11 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+The content is credited to 
+https://github.com/gabrieljoelc/herocker/blob/master/PITCHME.md
+
+Added a snippet to generate rails credentials because without this, the deployment to heroku won't work. I am also planning to create an rails api only generator for this.
+
 # Prerequisites
 Install Docker
 Install Ruby
@@ -78,6 +83,13 @@ New credentials encrypted and saved.
 heroku container:login
 heroku container:push -R
 ```
+
+# Reload the schema
+```
+heroku run rails db:schema:load
+
+heroku open
+```
 # References
-https://github.com/gabrieljoelc/herocker
-https://github.com/nickjj/orats
+> https://github.com/gabrieljoelc/herocker
+> https://github.com/nickjj/orats
