@@ -97,3 +97,4 @@ https://gentle-basin-51816.herokuapp.com/
 # References
 > https://github.com/gabrieljoelc/herocker
 > https://github.com/nickjj/orats
+> https://waiyanyoon.com/deploying-rails-5-2-applications-with-encrypted-credentials-using-capistrano/
