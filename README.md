@@ -48,7 +48,31 @@ Make sure that your app is running before executing config:set
 SECRET_TOKEN=`docker-compose exec website rails secret` \
 ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=`heroku apps:info | grep "Web URL:" | sed -e 's/^Web URL:        //'` \
 RAILS_SERVE_STATIC_FILES=true
+
+> docker-compose exec website sh
 ```
+Inside the docker container:
+```
+/app # EDITOR=vim rails credentials:edit
+```
+ This will output the following:
+ ```
+ Adding config/master.key to store the master encryption key: 917983f0528c05aee7d460742f021925
+
+Save this in a password manager your team can access.
+
+If you lose the key, no one, including you, can access anything encrypted with it.
+
+      create  config/master.key
+
+Ignoring config/master.key so it won't end up in Git history:
+
+      append  .gitignore
+
+New credentials encrypted and saved.
+/app # exit
+ ```
+
 # Heroku Container Registry
 ```
 heroku container:login
